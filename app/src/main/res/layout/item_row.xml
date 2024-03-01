@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="16sp"
+    android:background="@drawable/shape"
+    >
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:text="Test"
+        android:textColor="@color/black"
+        />
+
+    <ImageButton
+        android:id="@+id/ib_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/baseline_keyboard_arrow_up_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item"
+        android:contentDescription="+1"/>
+
+    <ImageButton
+        android:id="@+id/ib_minus"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/baseline_keyboard_arrow_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ib_plus"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item"
+        android:contentDescription="-1"
+        />
+
+    <ImageButton
+        android:id="@+id/ib_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/baseline_delete_24"
+        app:layout_constraintEnd_toStartOf="@+id/ib_plus"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item"
+        android:contentDescription="Delete"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
