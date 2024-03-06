@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tutkuozbakir.stocktracking.databinding.ItemRowBinding
-import com.tutkuozbakir.stocktracking.model.Item
+import com.tutkuozbakir.stocktracking.model.StockItem
+import com.tutkuozbakir.stocktracking.viewmodel.ItemViewModel
 
-class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(var itemList: List<StockItem>, private val itemViewModel: ItemViewModel): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(val binding: ItemRowBinding): RecyclerView.ViewHolder(binding.root) {
 
@@ -18,8 +19,24 @@ class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAd
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.binding.tvItem.text = "${itemList.get(position).item_name}/n${itemList.get(position).item_count}"
+        holder.binding.tvItem.text = "${itemList.get(position).item_name} \n${itemList.get(position).item_count}"
 
+        holder.binding.ibDelete.setOnClickListener{
+            itemViewModel.delete(itemList[position])
+        }
+
+        holder.binding.ibPlus.setOnClickListener {
+            itemList[position].item_count += 1
+            itemViewModel.insert(itemList[position])
+        }
+
+        holder.binding.ibMinus.setOnClickListener {
+            if(itemList[position].item_count > 0) {
+                itemList[position].item_count -= 1
+                itemViewModel.insert(itemList[position])
+            }
+
+        }
 
     }
 

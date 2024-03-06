@@ -1,19 +1,21 @@
 package com.tutkuozbakir.stocktracking.model
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-interface ItemDAO {
+@Dao
+interface StockItemDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertItem(item: Item)
+    suspend fun insertItem(item: StockItem)
 
     @Delete
-    suspend fun deleteItem(item: Item)
+    suspend fun deleteItem(item: StockItem)
 
     @Query("SELECT * FROM items")
-    fun getAllItems(): LiveData<List<Item>>
+    fun getAllItems(): LiveData<List<StockItem>>
 }
