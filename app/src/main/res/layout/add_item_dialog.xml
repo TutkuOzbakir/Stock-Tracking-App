@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:padding="16sp"
     android:layout_margin="16sp"
-    android:background="@drawable/shape">
+    android:background="@drawable/shape_dialog">
 
     <EditText
         android:id="@+id/et_dialog_itemName"
@@ -37,6 +37,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="4sp"
         android:background="@drawable/shape"
         android:backgroundTint="@color/grey"
         android:padding="8sp"
@@ -44,6 +45,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/blue"
+        app:layout_constraintWidth_percent=".5"
         app:layout_constraintEnd_toStartOf="@+id/tv_dialog_cancel"
         app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +57,10 @@
         android:layout_height="36dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginStart="4sp"
         android:background="@drawable/shape"
         android:backgroundTint="@color/grey"
+        app:layout_constraintWidth_percent=".5"
         android:padding="8sp"
         android:text="Cancel"
         android:textAlignment="center"
